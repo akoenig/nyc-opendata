@@ -56,23 +56,25 @@ module.exports = function () {
                                 entry = body.data[i];
                                 details = JSON.parse(entry[9][0]);
 
-                                facility.id = entry[8];
+                                if (entry[8]) {
+                                    facility.id = entry[8];
 
-                                if (details) {
-                                    facility.address = details.address;
-                                    facility.city = details.city;
-                                    facility.state = details.state;
-                                    facility.zip = details.zip;
+                                    if (details) {
+                                        facility.address = details.address;
+                                        facility.city = details.city;
+                                        facility.state = details.state;
+                                        facility.zip = details.zip;
+                                    }
+
+                                    facility.lat = entry[9][1];
+                                    facility.lng = entry[9][2];
+
+                                    facility.numberSixOil = (entry[24] === '#6');
+                                    facility.multiFuel = (entry[21] === 'DUAL FUEL');
+                                    facility.boilerCapacity = entry[18];
+
+                                    opendata.push(facility);
                                 }
-
-                                facility.lat = entry[9][1];
-                                facility.lng = entry[9][2];
-
-                                facility.numberSixOil = (entry[24] === '#6');
-                                facility.multiFuel = (entry[21] === 'DUAL FUEL');
-                                facility.boilerCapacity = entry[18];
-
-                                opendata.push(facility);
                             }
 
                             // Add to cache.
