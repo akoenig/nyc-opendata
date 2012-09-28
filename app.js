@@ -13,7 +13,6 @@
 
 var app,
     express = require('express'),
-    expressNamespace = require('express-namespace'),
     http = require('http'),
     path = require('path');
 
@@ -26,6 +25,8 @@ app.configure(function(){
     app.use(app.router);
 });
 
-http.createServer(app).listen(app.get('port'), function(){
+require('./app/')(app);
+
+http.createServer(app).listen(app.get('port'), function() {
     console.log("nycopendata server listening on port " + app.get('port'));
 });

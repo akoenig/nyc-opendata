@@ -16,23 +16,31 @@ module.exports = function (app) {
 
     var feeds = (function () {
         var datasources = {
-            '51': require('./feeds/51')();
+            '51': require('./feeds/51')()
         };
 
         return {
             get : function (id) {
-                return feeds[id];
+                return datasources[id];
             }
         };
-    });
+    }());
 
     app.get('/feed/:id', function (req, res) {
         var id = req.params.id,
-            feed = feeds.get(id);
+            feed = feeds.get(id),
+            betaville = req.query.betaville;
 
-        feed.consume()
-            .done(function (result) {
-                res.json(result);
-            });
+        if (betaville) {
+            feed.load.forBetaville()
+                .done(function (result) {
+                    res.json(result);
+                });
+        } else {
+            feed.load.forAll()
+                .done(function (result) {
+                    res.json(result);
+                });
+        }
     });
 };
