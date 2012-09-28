@@ -1,0 +1,22 @@
+{
+  "name": "nycopendata",
+  "description": "A wrapper around the official NYC OpenData API which provides a simplification and caching.",
+  "version": "0.0.1-5",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/akoenig/nycopendata.git"
+  },
+  "author": "André König <andre.koenig@gmail.com> (http://profile.lochkartenstanzer.de)",
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.0rc5",
+    "Deferred": "0.1.x"
+  },
+  "engines": {
+    "node": "0.8.x"
+  },
+  "subdomain": "nycopendata"
+}
