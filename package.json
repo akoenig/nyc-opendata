@@ -15,7 +15,8 @@
     "Deferred": "0.1.x",
     "express": "3.0.0rc5",
     "memory-cache": "0.0.x",
-    "request": "2.11.x"
+    "request": "2.11.x",
+    "underscore": "1.4.x"
   },
   "engines": {
     "node": "0.8.x"

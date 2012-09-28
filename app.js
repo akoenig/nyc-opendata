@@ -11,10 +11,11 @@
  *
  */
 
+"use strict";
+
 var app,
     express = require('express'),
-    http = require('http'),
-    path = require('path');
+    http = require('http');
 
 app = express();
 

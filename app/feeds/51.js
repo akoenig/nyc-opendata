@@ -45,12 +45,12 @@ module.exports = function () {
                             entry,
                             details;
 
-                        if (!error && response.statusCode == 200) {
+                        if (!error && response.statusCode === 200) {
                             opendata = [];
 
                             body = JSON.parse(body);
 
-                            for (var i = 0; i < body.data.length; i++) {
+                            for (i = 0; i < body.data.length; i++) {
                                 facility = {};
 
                                 entry = body.data[i];
@@ -97,7 +97,7 @@ module.exports = function () {
 
                 if (!opendata) {
                     request(url, function (error, response, body) {
-                        if (!error && response.statusCode == 200) {
+                        if (!error && response.statusCode === 200) {
                             opendata = JSON.parse(body);
 
                             // Add to cache.

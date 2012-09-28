@@ -16,7 +16,8 @@ module.exports = function (app) {
 
     var feeds = (function () {
         var datasources = {
-            '51': require('./feeds/51')()
+            '51': require('./feeds/51')(),
+            '53': require('./feeds/53')()
         };
 
         return {
